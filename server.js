@@ -42,3 +42,21 @@ db.on("error", function(error) {
 db.once("open", function() {
 	console.log("Mongoose connection successful.");
 });
+//routes
+
+//simple index route
+app.get("/", function(req, res) {
+	res.send(index.html);
+});
+
+// a GET request to scrape the site
+app.get("/scrape", function(req, res) {
+	request("http://www.usefnetwork.com/news/", function(error, response, html) {
+		//then load into cheerio and save it to $ for a shorthand selector
+		var $ = cheerio.load(html);
+		//now get every h2 in the article tag and do:
+		&("article h2").each(function(i, element) {
+			save
+		})
+	}
+})
